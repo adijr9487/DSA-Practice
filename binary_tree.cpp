@@ -53,6 +53,17 @@ void postOrderTree(TreeNode* root){
     cout << root->val << " ";
 }
 
+
+//height
+int getHeight(TreeNode* root){
+
+    if(root == nullptr)
+        return 0;
+
+    return 1+max(getHeight(root->left), getHeight(root->right));
+
+}
+
 int main()
 {
     // create tree
@@ -62,11 +73,12 @@ int main()
     head->left->right = new TreeNode(28);
     head->right = new TreeNode(56);
 
-    inOrderTree(head);
-    cout << "\n";
-    preOrderTree(head);
-    cout << "\n";
-    postOrderTree(head);
+    // inOrderTree(head);
+    // cout << "\n";
+    // preOrderTree(head);
+    // cout << "\n";
+    // postOrderTree(head);
 
+    cout << getHeight(head) << " ";
     return 0;
 }
