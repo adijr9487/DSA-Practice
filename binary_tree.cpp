@@ -64,12 +64,30 @@ int getHeight(TreeNode* root){
 
 }
 
+bool isBalanced(TreeNode* root){
+    if(root == nullptr)
+        return true;
+
+    if(isBalanced(root->left) == false)
+        return false;
+    if(isBalanced(root->right) == false)
+        return false;
+    
+    //abs(h-left - h-right) <= 1
+    if(abs(getHeight(root->left) - getHeight(root->right)) <= 1)
+        return true;
+    else
+        return false;
+}
+
 int main()
 {
     // create tree
     TreeNode *head = new TreeNode(21);
     head->left = new TreeNode(30);
     head->left->left = new TreeNode(32);
+    // head->left->left->left = new TreeNode(52);
+    // head->left->left->right = new TreeNode(82);
     head->left->right = new TreeNode(28);
     head->right = new TreeNode(56);
 
@@ -79,6 +97,8 @@ int main()
     // cout << "\n";
     // postOrderTree(head);
 
-    cout << getHeight(head) << " ";
+    // cout << getHeight(head) << " ";
+    cout << isBalanced(head) << " ";
+
     return 0;
 }
