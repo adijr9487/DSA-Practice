@@ -3,6 +3,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+using namespace std::chrono;
 
 vector<int> merge(vector<int> v1, vector<int> v2)
 {
@@ -31,12 +32,11 @@ vector<int> merge(vector<int> v1, vector<int> v2)
     return res;
 }
 
-
-vector<int> divide(vector<int>& v, int start, int end)
+vector<int> divide(vector<int> &v, int start, int end)
 {
     if (start == end)
     {
-        return vector<int>{ v[start] };
+        return vector<int>{v[start]};
     }
 
     int mid = (start + end) / 2;
@@ -47,12 +47,29 @@ vector<int> divide(vector<int>& v, int start, int end)
     return merge(left, right);
 }
 
+void generating_vector(vector<int> &v, int range, int size){
+    for (int i = 0; i < size; i++){
+        v.push_back()
+    }
+}
+
 int main()
 {
-    
+
     vector<int> v = {5, 2, 4, 5, 1, 4, 6, 8, 12, 523, 64, 23, 62};
+
+
+    auto start = high_resolution_clock::now();
+    
     v = divide(v, 0, v.size());
-    for(auto it: v)
+    
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(end - start);
+   
+    for (auto it : v)
         cout << it << " ";
+
+    cout << "\n"
+         << duration.count() << " ";
     return 0;
 }
