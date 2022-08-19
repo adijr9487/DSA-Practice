@@ -47,11 +47,11 @@ vector<int> divide(vector<int> &v, int start, int end)
     return merge(left, right);
 }
 
-void generating_vector(vector<int> &v, int range, int size){
-    for (int i = 0; i < size; i++){
-        v.push_back()
-    }
-}
+// void generating_vector(vector<int> &v, int range, int size){
+//     for (int i = 0; i < size; i++){
+//         v.push_back()
+//     }
+// }
 
 int main()
 {
